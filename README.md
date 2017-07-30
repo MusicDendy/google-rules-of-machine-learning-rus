@@ -48,30 +48,23 @@ You can find the overview for this guide in [overview.md](/overview.md).
 Простая эвристика может открыть двери вашему продукту. Сложные эвристики трудно поддерживаемы. Как только у вас есть данные и представление о том чего вы пытаетесь достигнуть, переходите к машинному обучению. Как и в большинстве инженерных задачах программного обеспечения, вы захотите постоянно обновлять свой подход, будь то эвристики или ML-модели и вы найдете что ML-модели проще в обновлении и обслуживании(см. правило **#16**)
 
 
-## Your First Pipeline
+## Первый пайплайн (Pipeline)
 
-> Focus on your system infrastructure for your first pipeline. While it is fun to think about all the
-imaginative machine learning you are going to do, it will be hard to figure out what is happening
-if you don’t first trust your pipeline.
+Сосредоточьтесь на своей системной инфраструктуре для вашего первого пайплайна. Хотя интересно думать и воображать про всякие штуки, которое вы собираетесь делать с помощью машинного обучения, но вам будет сложно понять, что происходит, если вы не доверяете своему пайплайну.
 
-#### Rule 4 - Keep the first model simple and get the infrastructure right.
+#### Правило #4: Сохраните первую модель простой и получите правильную инфраструктуру.
+ 
+Первая модель обеспечивает большой толчок вашему продукту, и это не должно быть фантазией. Но вы столкнетесь с куда большим числом инфраструктурных задач, чем ожидаете. До того как кто-то сможет использовать вашу новую систему машинного обучения, вы должны определить:
+1. Как и где получить обучающую выборку
+2. В первом приближении определить что такое хорошо и плохо для вашей системы
+3. Как внедрить модель в ваше приложение. Вы можете применить модель в реальном времени или предрасчитать модель на примерах в оффлайне и сохранить результаты в таблице. Например, вы желаете классифицировать веб-страницы и сохранить результаты в в таблицу, но вы можете хотеть классифицировать сообщения чата в реалтайме.
 
-The first model provides the biggest boost to your product, so it doesn't need to be fancy. But you will run into many more infrastructure issues than you expect. Before anyone can use your
-fancy new machine learning system, you have to determine:
+Выбор простых признаков делает это проще  и убедитесь что:
+1. Функции(Признаки) правильно реализуют ваш алгоритм обучения
+2. Модель обучается с разумными весами(избегайте переобучения)
+3. Признаки правильно передаются в вашу модель на сервере
 
-1. How to get examples to your learning algorithm.
-2. A first cut as to what “good” and “bad” mean to your system.
-3. How to integrate your model into your application. You can either apply the model live, or pre­compute the model on examples offline and store the results in a table. For example,
-you might want to pre­classify web pages and store the results in a table, but you might want to classify chat messages live.
-
-Choosing simple features makes it easier to ensure that:
-
-1. The features reach your learning algorithm correctly.
-2. The model learns reasonable weights.
-3. The features reach your model in the server correctly.
-
-Once you have a system that does these three things reliably, you have done most of the work. Your simple model provides you with baseline metrics and a baseline behavior that you can use
-to test more complex models. Some teams aim for a “neutral” first launch: a first launch that explicitly de-­prioritizes machine learning gains, to avoid getting distracted.
+Если ваша система делает три этих вещи надежно, то вы выполнили большую часть работы. Ваша простая модель дает вам базовые показатели и базовое поведение, которое вы можете использовать для тестирования более сложных моделей. Некоторые команды стремятся к нейтральному первому запуску: первый запуск явным образом не ставит целью получение прибыли через машинное обучение, чтобы не отвлекаться.
 
 #### Rule 5 - Test the infrastructure independently from the machine learning.
 

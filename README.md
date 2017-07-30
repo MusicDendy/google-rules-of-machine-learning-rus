@@ -19,10 +19,14 @@ You can find the overview for this guide in [overview.md](/overview.md).
 
 **Note**: *Asterisk* (\*) footnotes are my own. *Numbered* footnotes are Martin's.
 
-## Before Machine Learning
+## Прежде чем использовать машинное обучение
 
-#### Rule 1 - Don't be afraid to launch a product without machine learning.*
-Machine learning is cool, but it requires data. Theoretically, you can take data from a different problem and then tweak the model for a new product, but this will likely underperform basic heuristics. If you think that machine learning will give you a 100% boost, then a heuristic will get you 50% of the way there. For instance, if you are ranking apps in an app marketplace, you could use the install rate or number of installs. If you are detecting spam, filter out publishers that have sent spam before. Don’t be afraid to use human editing either. If you need to rank contacts, rank the most recently used highest (or even rank alphabetically). If machine learning is not absolutely required for your product, don't use it until you have data.
+#### Правило #1: Не бойтесь запустить продукт без машинного обучения.*
+
+Машинное обучение это круто, но оно требует данных. Теоретически, вы можете взять данные из другой проблемы, а затем настраивать модель под новый продукт, но это будет хуже работать базовых эвристик. Если вы думаете что машинное обучение даст вам 100 прирост, значит эвристика даст вам 50% тем же путем.
+
+Например, вы ранжируете приложения в магазине,для этого вы должны использовать рейтинг или количество установок. Если вы обнаруживаете спам, фильтруйте отправителей, которые отправили спам до этого. Не бойтесь использовать правки человека. Если вам нужно упорядочить контакты, то отсортируйте их по частоте использования (или даже по алфавиту). Если машинное обучение не является абсолютно необходимым для вашего продукта, то не используйте его, пока не получите данные.
+
 
 <sup>[Google Research Blog - The 280-Year-Old Algorithm Inside Google Trips](https://research.googleblog.com/2016/09/the-280-year-old-algorithm-inside.html?m=1)</sup>
 

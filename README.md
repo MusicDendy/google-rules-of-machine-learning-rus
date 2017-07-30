@@ -119,9 +119,10 @@ require an e­mail alert, but issues on a user­facing model may require a page.
 
 * <sup> [*A Framework for Analysis of Data Freshness* - Bouzeghoub & Peralta](https://www.fing.edu.uy/inco/grupos/csi/esp/Publicaciones/2004/iqis2004-mb.pdf)</sup>
 
-#### Rule 11 - Give feature columns owners and documentation.
+#### Правило #11: Назначьте владельцев наборам признаков и документации. 
 
-If the system is large, and there are many feature columns, know who created or is maintaining each feature column. If you find that the person who understands a feature column is leaving, make sure that someone has the information. Although many feature columns have descriptive names, it's good to have a more detailed description of what the feature is, where it came from, and how it is expected to help.
+Если система большая и имеет много признаков, вам нужно знать кто создал и поддерживал каждый признак. Если вы обнаружите, что человек, который понимает признак , уходит, то убедитесь что он передаст информацию кому-то. Хотя, многие признаки имеют понятные имена, полезно иметь более подробное описание, что значит каждый признак, откуда он взялся, и как он может помочь(вносит вклад).
+
 
 ### Your First Objective
 

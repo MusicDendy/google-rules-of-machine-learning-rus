@@ -66,38 +66,29 @@
 
 Если ваша система делает три этих вещи надежно, то вы выполнили большую часть работы. Ваша простая модель дает вам базовые показатели и базовое поведение, которое вы можете использовать для тестирования более сложных моделей. Некоторые команды стремятся к нейтральному первому запуску: первый запуск явным образом не ставит целью получение прибыли через машинное обучение, чтобы не отвлекаться.
 
-#### Rule 5 - Test the infrastructure independently from the machine learning.
+#### Правило #5: Проверяйте инфраструктуру независимо от машинного обучения.
 
-Make sure that the infrastructure is testable, and that the learning parts of the system are
-encapsulated so that you can test everything around it. Specifically:
+Убедитесь, что инфраструктура тестируема и части обучающей системы инкапсулированы так, что вы можете протестировать каждую деталь. В частности:
 
-1. Test getting data into the algorithm. Check that feature columns that should be populated
-are populated. Where privacy permits, manually inspect the input to your training algorithm. If possible, check statistics in your pipeline in comparison to elsewhere, such
-as RASTA.
+1. Проверьте получение данных внутри алгоритма. Проверяйте что признаки которые должны быть заполнены действительно заполнены. Если, вы не нарушаете конфиденциальность, то проверьте вручную  входные данные в свой алгоритм обучения. Если возможно, проверьте статистики в вашем папйплайне, по сравнению с другими данными, например с помощью RASTA.
+2. Проверьте получение моделей из обучающего алгоритма. Убедитесь, что модель на обучении дает те же результаты, что и модель в рабочей среде. (см. правило **#37**)
 
-2. Test getting models out of the training algorithm. Make sure
-that the model in your
-training environment gives the same score as the model in your serving environment (see Rule **#37**). Machine learning has an element of unpredictability, so make sure that you have tests for the code for creating examples in training and serving, and that you can load and use a fixed model during serving. Also, it is important to understand your data: see [Practical Advice for Analysis of Large, Complex Data Sets.](http://www.unofficialgoogledatascience.com/2016/10/practical-advice-for-analysis-of-large.html)
+У машинного обучения есть элемент непредсказуемости, так что убедитесь что имеете тесты для кода создающие примеры для обучающей и реальной среде, и что вы можете загружать и использовать фиксированную модель в реальной среде. Кроме того, важно понимать ваши данные: см. [Практические советы по анализу больших, сложных наборов данных (ENG)](http://www.unofficialgoogledatascience.com/2016/10/practical-advice-for-analysis-of-large.html).
 
-#### Rule 6 - Be careful about dropped data when copying pipelines.
+#### Правило #6: Будьте осторожны с удалением данных когда копируете пайплайн.
 
-Often we create a pipeline by copying an existing pipeline (i.e. [cargo cult programming](https://en.wikipedia.org/wiki/Cargo_cult_programming)), and the old pipeline drops data that we need for the new pipeline. For example, the pipeline for Google
-Plus What’s Hot drops older posts (because it is trying to rank fresh posts). This pipeline was copied to use for Google Plus Stream, where older posts are still meaningful, but the pipeline
-was still dropping old posts. Another common pattern is to only log data that was seen by the user. Thus, this data is useless if we want to model why a particular post was not seen by the
-user, because all the negative examples have been dropped. A similar issue occurred in Play. While working on Play Apps Home, a new pipeline was created that also contained examples
-from two other landing pages (Play Games Home and Play Home Home) without any feature to disambiguate where each example came from.
+Часто мы создаем пайплайн копируя существующий пайплайн (см. [культ карго programming](https://en.wikipedia.org/wiki/Cargo_cult_programming)), а старый пайплайн удаляет данные которые нужны для нового пайплайну. Например, пайплайн для Google Plus горяче удалял старые сообщения(потому что пытается ранжировать новые сообщения). Этот пайплайн скопирован и использован в Google Plus Stream, где старые сообщения важны, но пайплайн удалял старые сообщения. Другой распространенный шаблон состоит в том что только логгировать данные которые пользователь смотрят. Таким образом, эти данные бесполезны, если мы хотим моделировать почему конкретное сообщение не было замечено пользователем, потому что все негативные примеры были удалены. Похожий случай произошел в Play. Во время работы над “Play Apps Home”, был создан новый пайплайн, который также содержал примеры двух других лендингов (“Play Games Home” and “Play Home Home”) без какого-то признака позволяющего понять откуда пришел каждый объект.
 
-#### Rule 7 - Turn heuristics into features, or handle them externally.
+#### Правило #7: Включите эвристики в признаки или обработайте их
 
-Usually the problems that machine learning is trying to solve are not completely new. There is an existing system for ranking, or classifying, or whatever problem you are trying to solve. This means that there are a bunch of rules and heuristics. These same heuristics can give you a lift when tweaked with machine learning. Your heuristics should be mined for whatever information they have, for two reasons. First, the transition to a machine learned system will be smoother. Second, usually those rules contain a lot of the intuition about the system you don’t want to throw away. There are four ways you can use an existing heuristic:
+Обычно задачи, которые решают с помощью машинного обучения, не являются новыми. Существуют системы для ранжирования , классификации или любой другой задачи, которую вы пытаетесь решить. Это означает что существует множество правил и эвристик. Эти эвристики могут дать вам прирост при настройке модели машинного обучения. Ваши эвристики должны быть извлечены для любой информации и на это есть пара причин. Во-первых, это обеспечит плавный переход на использование машинного обучения. Во-вторых, обычно такие правила включают в себя интуитивные знания о системе и мы не хотели бы их потерять
+Вот 4 подхода как вы можете использовать существующие эвристики:
 
-1. Preprocess using the heuristic. If the feature is incredibly awesome, then this is an option. For example, if, in a spam filter, the sender has already been blacklisted, don’t try
-to relearn what “blacklisted” means. Block the message. This approach makes the most sense in binary classification tasks.
-2. Create a feature. Directly creating a feature from the heuristic is great. For example, if you use a heuristic to compute a relevance score for a query result, you can include the score as the value of a feature. Later on you may want to use machine learning techniques to massage the value (for example, converting the value into one of a finite
-set of discrete values, or combining it with other features) but start by using the raw value produced by the heuristic.
-3. Mine the raw inputs of the heuristic. If there is a heuristic for apps that combines the number of installs, the number of characters in the text, and the day of the week, then
-consider pulling these pieces apart, and feeding these inputs into the learning separately. Some techniques that apply to ensembles apply here (see **Rule #40**).
-4. Modify the label. This is an option when you feel that the heuristic captures information not currently contained in the label. For example, if you are trying to maximize the number of downloads, but you also want quality content, then maybe the solution is to multiply the label by the average number of stars the app received. There is a lot of space here for leeway. See the section on [“Your First Objective”](#your-first-objective). Do be mindful of the added complexity when using heuristics in an ML system. Using old heuristics in your new machine learning algorithm can help to create a smooth transition, but think about whether there is a simpler way to accomplish the same effect.
+1. Предобработка с использованием эвристики. Если признак невероятно хорош, то это вариант. Например, в спам фильтре, если отправитель уже находится в черном списке, то не нужно переучивать и менять значение “черный список”. Заблокируйте сообщение. Этот подход имеет наибольший смысл в задачах бинарной классификации.
+2. Создавайте новые признаки. Создание признаков из эвристик это превосходно. К пример, если вы используете эвристику чтобы рассчитать оценку релевантности результатов запроса, вы можете включать оценку значения этого признака. Позже вы можете использовать техники машинного обучения для получения правильного значения(к примеру, преобразование значения в один из конечных  наборов дискретных значений или объединение с другими признаками), но начинайте с исходных значений произведенными на основе эвристик. 
+3. Добавляйте сырые данные из эвристик. Если существует эвристика для приложений, которая объединяет количество установок, количество символов в тексте и день недели, то подумайте о том, чтобы разделить эти части друг от друга и передать в обучение отдельно. Здесь применяются некоторые методы, применимые к ансамблям (см. **Правило #40**)
+4. Изменяйте метку. Этот вариант применяется , если вы чувствуете, что эвристика содержит информацию не отраженную в метке. К примеру, если вы пытаетесь максимизировать количество загрузок, но также вы нуждаетесь в качественном контенте, то возможно решение заключается в умножении метки на средний рейтиг приложения. Здесь много пространства для маневра. Смотрите раздел “Ваша первая цель”.
+Обратите внимание, что вы добавляете сложности, когда используете эвристики в ML-системе. Использование старых эвристик в новом ML-алгоритме позволяет осуществить плавный переход, но подумайте о том, что может есть просто путь достигнуть того же эффекта.
 
 ### Мониторинг
 

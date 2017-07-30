@@ -30,22 +30,18 @@ You can find the overview for this guide in [overview.md](/overview.md).
 
 <sup>[Google Research Blog - The 280-Year-Old Algorithm Inside Google Trips](https://research.googleblog.com/2016/09/the-280-year-old-algorithm-inside.html?m=1)</sup>
 
-#### Rule 2 - First, design and implement metrics.
-Before formalizing what your machine learning system will do, track as much as possible in your current system. Do this for the following reasons:
+#### Правило #2: Во-первых, спроектируйте и реализуйте метрики
+До того как формализовать, что будет делать ваша система машинного обучения, узнайте как можно больше о вашей текущей системе. Сделайте это по следующим причинам: 
+1. Легче получить разрешений от пользователей системы ранее
+2. Если вы думаете, что что-то может быть проблемой в будущем, то лучше это проверить сейчас на исторических данных
+3. Если вы проектируете вашу систему держа в голове инструментарий метрик, то ваши дела пойдут в гору в будущем. В частности, вы не найдете себя грепающим логи, чтобы измерить ваши показатели.
+4. Вы заметите, какие вещи меняются и что остается неизменным. Например, предположим, вы хотите напрямую оптимизировать “однодневных” пользователей. Однако во время ваших прошлых манипуляций вы можете заметить, что сильные изменения в пользовательском опыте не влияют на метрику.
 
-1. It is easier to gain permission from the system’s users earlier on.
-2. If you think that something might be a concern in the future, it is better to get historical
-data now.
-3. If you design your system with metric instrumentation in mind, things will go better for
-you in the future. Specifically, you don’t want to find yourself grepping for strings in logs
-to instrument your metrics!
-4. You will notice what things change and what stays the same.
+Команда Google Plus измеряет “открытий на просмотр”, “репостов на просмотр”, плюсование(лайк или +1) на просмотр, отношение комментариев к просмотрам, комментарии на пользователя, репосты на пользователя и другие что можно использовать в расчете добротности сообщения во время обслуживания. Также, обратите внимание на экспериментальный фреймворк, который вы можете сгруппировать пользователей в кластеры и агрегироваться статистику для экспериментов, что важно. Смотрите правило **#12** .
 
-For instance, suppose you want to directly optimize one-­day active users. However, during your early manipulations of the system, you may notice that dramatic alterations of the user experience don’t noticeably change this metric.
-Google Plus team measures expands per read, reshares per read, plus­-ones per read, comments/read, comments per user, reshares per user, etc. which they use in computing the goodness of a post at serving time. Also, note that an experiment framework, where you can group users into buckets and aggregate statistics by experiment, is important. See Rule **#12**.
+Будьте более свободны(не ограничивайте себя) в сборе метрик, таким образом вы получите более широкое представление о вашей системе. 
+Заметили проблему? Добавьте метрику и отслеживайте её! Волнуетесь о некоторых количественных изменениях после последнего релиза? Добавьте метрику и следите за этим! 
 
-By being more liberal about gathering metrics, you can gain a broader picture of your system. Notice a problem? Add a metric to track it! Excited about some quantitative change on the last
-release? Add a metric to track it!
 
 #### Rule 3 - Choose machine learning over complex heuristic.
 

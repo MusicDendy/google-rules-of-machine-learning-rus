@@ -43,11 +43,10 @@ You can find the overview for this guide in [overview.md](/overview.md).
 Заметили проблему? Добавьте метрику и отслеживайте её! Волнуетесь о некоторых количественных изменениях после последнего релиза? Добавьте метрику и следите за этим! 
 
 
-#### Rule 3 - Choose machine learning over complex heuristic.
+#### Правило #3: Используйте методы машинного обучения вместо сложной эвристики
 
-A simple heuristic can get your product out the door. A complex heuristic is unmaintainable. Once you have data and a basic idea of what you are trying to accomplish, move on to machine
-learning. As in most software engineering tasks, you will want to be constantly updating your approach, whether it is a heuristic or a machine-learned model, and you will find that the
-machine-­learned model is easier to update and maintain (see Rule **#16**).
+Простая эвристика может открыть двери вашему продукту. Сложные эвристики трудно поддерживаемы. Как только у вас есть данные и представление о том чего вы пытаетесь достигнуть, переходите к машинному обучению. Как и в большинстве инженерных задачах программного обеспечения, вы захотите постоянно обновлять свой подход, будь то эвристики или ML-модели и вы найдете что ML-модели проще в обновлении и обслуживании(см. правило **#16**)
+
 
 ## Your First Pipeline
 

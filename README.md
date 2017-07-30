@@ -1,14 +1,14 @@
 # Google's *43 Rules of Machine Learning*
 
-Github mirror of [M. Zinkevich's](http://martin.zinkevich.org/)  great ["Rules of Machine Learning"](http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf) style guide, with extra goodness.
+Перевод отличного руководства [Мартина Зинкевича](http://martin.zinkevich.org/)  ["Принципы машинного обучения"](http://martin.zinkevich.org/rules_of_ml/rules_of_ml.pdf), с дополнительными комментариями.
 
 -----
 
-You can find the terminology for this guide in [terminology.md](/terminology.md).
+Вы можете найти терминологию к этому руководству в файле  [terminology.md](/terminology.md).
 
-You can find the overview for this guide in [overview.md](/overview.md).
+Вы можете найти введение к этому руководству в файле [overview.md](/overview.md).
 
-#### Structure
+#### Содержание
 
 1. [Before Machine Learning](#before-machine-learning)
 2. [ML Phase 1: Your First Pipeline](#your-first-pipeline)

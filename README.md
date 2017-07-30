@@ -124,16 +124,17 @@ require an e­mail alert, but issues on a user­facing model may require a page.
 Если система большая и имеет много признаков, вам нужно знать кто создал и поддерживал каждый признак. Если вы обнаружите, что человек, который понимает признак , уходит, то убедитесь что он передаст информацию кому-то. Хотя, многие признаки имеют понятные имена, полезно иметь более подробное описание, что значит каждый признак, откуда он взялся, и как он может помочь(вносит вклад).
 
 
-### Your First Objective
+### Ваша первая цель
 
-> You have many metrics, or measurements about the system that you care about, but your machine learning algorithm will often require a **single objective, a number that your algorithm is “trying” to optimize.** I distinguish here between objectives and metrics: **a metric is any number that your system reports**, which may or may not be important. See also Rule **#2**.
+> У вас есть много показателей или измерений относительно системы, о которой вы беспокоитесь, но для МЛ-алгоритма часто требуется одна **цель - это число, которое ваш алгоритм “пытается” оптимизировать.** Здесь я различаю цели и показатели: **метрика - это любое число, которая сообщает ваша система**, и она может быть важной, а может быть нет. Смотрите правило **#2**.
 
-#### Rule 12 - Don't overthink which objective you choose to directly optimize.
 
-You want to make money, make your users happy, and make the world a better place. There are tons of metrics that you care about, and you should measure them all (see Rule **#2**). However,
-early in the machine learning process, you will notice them all going up, even those that you do not directly optimize. For instance, suppose you care about number of clicks, time spent on the site, and daily active users. If you optimize for number of clicks, you are likely to see the time
-spent increase. So, keep it simple and don’t think too hard about balancing different metrics when you can still
-easily increase all the metrics. Don’t take this rule too far though: do not confuse your objective with the ultimate health of the system (see Rule #39). And, **if you find yourself increasing the directly optimized metric, but deciding not to launch, some objective revision may be required.**
+#### Правило #12: Не переусердствуйте, в выборе цели которую вы напрямую оптимизируйте.
+
+Вы хотите заработать деньги, сделать ваших пользователей счастливыми и сделать мир лучше. Есть масса метрик, которые вас волнуют, и вы должны их измерить (см. Правило **#2**). Однако, в начале процесса машинного обучение, вы заметите, что все они растут, даже те, которые вы не оптимизируете напрямую. Например, предположим что вы беспокоитесь о количестве кликов, времени пребывания на сайте, и количеством пользователей за день. Если вы оптимизируете количество кликов, вы скорее всего, увидите как время пребывания на сайте увеличивается.
+
+Итак, сохраняйте его простым и не задумывайтесь о сложном балансе различных метрик, когда вы еще можете легко увеличить все показатели. Не используйте это правило повсеместно: не путайте свою цель с работоспособностью  системы (см правило 39). И, **если вы обнаружите  что увеличиваете напрямую оптимизируемую метрику, но решите не запускать, может потребоваться какая-то объективная ревизия.** 
+
 
 #### Rule 13 - Choose a simple, observable and attributable metric for your first objective.
 

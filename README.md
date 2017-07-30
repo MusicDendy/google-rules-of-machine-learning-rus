@@ -113,12 +113,9 @@ Many machine learning systems have a stage where you export the model to serving
 Do sanity checks right before you export the model. Specifically, make sure that the model’s performance is reasonable on held out data. Or, if you have lingering concerns with the data, don’t export a model. Many teams continuously deploying models check the area under the [ROC curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) (or [AUC](http://stats.stackexchange.com/questions/132777/what-does-auc-stand-for-and-what-is-it)) before exporting. Issues about models that haven’t been exported
 require an e­mail alert, but issues on a user­facing model may require a page. So better to wait and be sure before impacting users.
 
-#### Rule 10 - Watch for silent failures.
-
-This is a problem that occurs more for machine learning systems than for other kinds of systems. Suppose that a particular table that is being joined is no longer being updated. The
-machine learning system will adjust, and behavior will continue to be reasonably good, decaying gradually. Sometimes tables are found that were months out of date, and a simple refresh
-improved performance more than any other launch that quarter! For example, the coverage of a feature may change due to implementation changes: for example a feature column could be
-populated in 90% of the examples, and suddenly drop to 60% of the examples. Play once had a table that was stale for 6 months, and refreshing the table alone gave a boost of 2% in install rate. If you track statistics of the data, as well as manually inspect the data on occasion, you can reduce these kinds of failures.*
+#### Правило #10: Следите за тихими неудачами
+ 
+Это проблема возникает чаще для МЛ-система, чем для других видов систем. Предположим, что конкретная, таблица, которую вы соединяете больше не обновляется. МЛ-система будет корректироваться и поведение будет по прежнему хорошим в течении долгого времени, однако постепенно деградируя. Иногда поиск таблиц, которые давно устарели и простое обновление улучшает эффективность больше, чем любой другой запуск на в квартале. К примеру, покрытие признака может измениться из-за изменения в реализации: к примеру признак-столбец может быть заполнен на 90% и внезапно упал до 60% объектов. В сервисе Play была таблица, которая не обновлялась 6 месяцев, и обновление таблицы привело к увеличению на 2% количества установок. Если вы отслеживаете статистики в данных, а также вручную проверяете аномалии в данных, то вы можете уменьшить такие сбои. *
 
 * <sup> [*A Framework for Analysis of Data Freshness* - Bouzeghoub & Peralta](https://www.fing.edu.uy/inco/grupos/csi/esp/Publicaciones/2004/iqis2004-mb.pdf)</sup>
 

@@ -99,18 +99,13 @@ set of discrete values, or combining it with other features) but start by using 
 consider pulling these pieces apart, and feeding these inputs into the learning separately. Some techniques that apply to ensembles apply here (see **Rule #40**).
 4. Modify the label. This is an option when you feel that the heuristic captures information not currently contained in the label. For example, if you are trying to maximize the number of downloads, but you also want quality content, then maybe the solution is to multiply the label by the average number of stars the app received. There is a lot of space here for leeway. See the section on [“Your First Objective”](#your-first-objective). Do be mindful of the added complexity when using heuristics in an ML system. Using old heuristics in your new machine learning algorithm can help to create a smooth transition, but think about whether there is a simpler way to accomplish the same effect.
 
-### Monitoring
+### Мониторинг
 
-> In general, practice good alerting hygiene, such as making alerts actionable and having a
-dashboard page.
+> В общем, правилами хорошего тона считаются, создание уведомлений на действия и наличие дашбордов.
 
-#### Rule 8 - Know the freshness requirements of your system
+#### Правило #8: Знайте требования к актуальности вашей системы.
 
-How much does performance degrade if you have a model that is a day old? A week old? A quarter old? This information can help you to understand the priorities of your monitoring. If you
-lose 10% of your revenue if the model is not updated for a day, it makes sense to have an engineer watching it continuously. Most ad serving systems have new advertisements to handle
-every day, and must update daily. For instance, if the ML model for Google Play Search is not updated, it can have an impact on revenue in under a month. Some models for What’s Hot in
-Google Plus have no post identifier in their model so they can export these models infrequently. Other models that have post identifiers are updated much more frequently. Also notice that
-freshness can change over time, especially when feature columns are added or removed from your model.
+Насколько ухудшается производительность, если ваша модель устареет на 1 день? А на неделю? А на квартал? Это информация поможет вам понять приоритеты вашего мониторинга. Если вы потеряете 10% своего дохода из-за того что модель не обновляется в течении дня, имеет смысл постоянно следить за её работой. В большинстве рекламных систем новые объявления обрабатываются каждый день и ежедневно обновляются. Например, если ML-модель в Google Play Search не будет обновлена, это может повлиять на месячный доход. Некоторые модели для What’s Hot in Google Plus не имеют идентификаторов сообщений в своей модели, поэтому они могут экспортировать этим модели нечасто. Другие модели, у которых есть идентификаторы сообщения, обновляются гораздо чаще. Также обратите внимание, что актуальность может меняться со временем, особенно когда признаки добавляются или удаляются из вашей модели.
 
 #### Rule 9 - Detect problems before exporting models.
 

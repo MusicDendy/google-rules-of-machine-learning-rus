@@ -98,11 +98,12 @@
 
 Насколько ухудшается производительность, если ваша модель устареет на 1 день? А на неделю? А на квартал? Это информация поможет вам понять приоритеты вашего мониторинга. Если вы потеряете 10% своего дохода из-за того что модель не обновляется в течении дня, имеет смысл постоянно следить за её работой. В большинстве рекламных систем новые объявления обрабатываются каждый день и ежедневно обновляются. Например, если ML-модель в Google Play Search не будет обновлена, это может повлиять на месячный доход. Некоторые модели для What’s Hot in Google Plus не имеют идентификаторов сообщений в своей модели, поэтому они могут экспортировать этим модели нечасто. Другие модели, у которых есть идентификаторы сообщения, обновляются гораздо чаще. Также обратите внимание, что актуальность может меняться со временем, особенно когда признаки добавляются или удаляются из вашей модели.
 
-#### Rule 9 - Detect problems before exporting models.
+#### Правило #9: Обнаружьте проблемы до экспорта модели.
 
-Many machine learning systems have a stage where you export the model to serving. If there is an issue with an exported model, it is a user­facing issue. If there is an issue before, then it is a training issue, and users will not notice.
-Do sanity checks right before you export the model. Specifically, make sure that the model’s performance is reasonable on held out data. Or, if you have lingering concerns with the data, don’t export a model. Many teams continuously deploying models check the area under the [ROC curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) (or [AUC](http://stats.stackexchange.com/questions/132777/what-does-auc-stand-for-and-what-is-it)) before exporting. Issues about models that haven’t been exported
-require an e­mail alert, but issues on a user­facing model may require a page. So better to wait and be sure before impacting users.
+Многие МЛ-системы имеют этап, на котором вы экспортируете модель в продакшн. Если проблема связана с экспортируемой моделью, то будут проблемы с пользовательским интерфейсом. А если проблема будет обнаружена заранее - на обучении, то пользователи ничего не заметят.
+
+Выполняйте проверку работоспособности, прямо перед экспортом модели. В частности, проверьте  эффективность(качество) модели на отложенных данных. Или, если у вас есть длительная проблема с данными, то не экспортируйте модель. Многие команды, постоянно развертывающие модели, проверяют площадь под [ROC-кривой](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) ((или [AUC](http://stats.stackexchange.com/questions/132777/what-does-auc-stand-for-and-what-is-it)) перед экспорта.  **Проблемы с моделями, которые не были экспортированы требуют уведомления по электронной почте, но для проблем с моделями, которые задействованы в пользовательском интерфейсе, может потребоваться отдельная страница.** Поэтому лучше подождать и быть уверенным, прежде чем воздействовать на пользователей.
+
 
 #### Правило #10: Следите за тихими неудачами
  

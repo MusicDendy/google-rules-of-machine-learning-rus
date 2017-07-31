@@ -155,14 +155,16 @@
 
 Все это очень важно, и в тоже время невероятно сложно. Вместо этого, используйте “допущение-следствие”: если пользователи счастливы, то они останутся дольше на сайте. Если пользователь доволен взаимодействием, значит он придет и завтра. Что касается благополучия и здоровья компании, человеческое суждение требуется для того, чтобы связать любую цель МЛ  с характером продукта, который вы продаете и вашим бизнес планом, поэтому мы не закончим [здесь](https://www.youtube.com/watch?v=bq2_wSsDwkQ).
 
-#### Rule 14 - Starting with an interpretable model makes debugging easier.
+#### Правило #14: Начиная с интерпретируемой модели вы упрощаете отладку.
 
-[Linear regression](https://en.wikipedia.org/wiki/Linear_regression), [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression), and [Poisson regression](https://en.wikipedia.org/wiki/Poisson_regression) are directly motivated by a probabilistic model. Each prediction is interpretable as a probability or an expected value. This makes them easier to debug than models that use objectives (zero­one loss, various hinge losses, et cetera) that try to directly optimize classification accuracy or ranking performance. For example, if probabilities in training deviate from probabilities predicted in side­-by-­sides or by
-inspecting the production system, this deviation could reveal a problem.
+[Линейная регрессия](https://en.wikipedia.org/wiki/Linear_regression), [логистическая регрессия](https://en.wikipedia.org/wiki/Logistic_regression), и [Пуассоновская регрессия](https://en.wikipedia.org/wiki/Poisson_regression) напрямую определяются как вероятностная модель. Каждое предсказание интерпретируется как вероятность или ожидаемое значение. Это облегчает их отладку, чем модели, которые используют цели (zero­one loss, various hinge losses, et cetera), которые пытаются напрямую оптимизировать  точность классификации или эффективность ранжирования. К примеру, если вероятности при обучении отклоняются от вероятностей,  предсказанных бок-о-бок или путем проверки рабочей системы, это отклонение может выявить проблему.
 
-For example, in linear, logistic, or Poisson regression, **there are subsets of the data where the average predicted expectation equals the average label (1­moment calibrated, or just calibrated)<sup>3</sup>**. If you have a feature which is either 1 or 0 for each example, then the set of examples where that feature is 1 is calibrated. Also, if you have a feature that is 1 for every example, then the set of all examples is calibrated.
+Например, в линейной, логистической или регрессии Пуассона **имеются подмножества данных, где среднее прогнозируемое ожидание равно средней метке (1-й момент калиброван или просто откалиброван)<sup>3</sup>**. Если у вас есть признак, который равен 1 или 0 для каждого примера, тогда набор примеров, где этот признак равен 1, откалиброван. Кроме того, если у вас есть признак, который равен 1 для каждого примера, тогда набор всех примеров откалиброван.
+ 
+С простыми моделями проще получать обратную связь (см правило 36).
+Часто, мы используем эти вероятностные модели для принятия решений: таких как ранжирование сообщений в убывающем порядке по ожидаемому значению( т.е. вероятности от клика/загрузки/ чего то другого). **Однако, помните когда придет время выбрать какую модель использовать, решение имеет большее значение, чем вероятность получения данных данной модели** (см правило № 27). 
 
-With simple models, it is easier to deal with feedback loops (see Rule **#36&**). Often, we use these probabilistic predictions to make a decision: e.g. rank posts in decreasing expected value (i.e. probability of click/download/etc.). However, remember when it comes time to choose which model to use, the decision matters more than the likelihood of the data given the model (see Rule **#27**).
+> (3) Это верно, если у вас нет регуляризации и ваш алгоритм сходится. В целом это примерно так.
 
 #### Rule 15 - Separate Spam Filtering and Quality Ranking in a Policy Layer.
 

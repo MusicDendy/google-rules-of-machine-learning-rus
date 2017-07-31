@@ -128,36 +128,32 @@
 Итак, сохраняйте его простым и не задумывайтесь о сложном балансе различных метрик, когда вы еще можете легко увеличить все показатели. Не используйте это правило повсеместно: не путайте свою цель с работоспособностью  системы (см правило 39). И, **если вы обнаружите  что увеличиваете напрямую оптимизируемую метрику, но решите не запускать, может потребоваться какая-то объективная ревизия.** 
 
 
-#### Rule 13 - Choose a simple, observable and attributable metric for your first objective.
+#### Выбирайте простую, поддающуюся наблюдениям и понятную метрику для вашей первой цели.
 
-Often you don't know what the true objective is. You think you do but then you as you stare at the data and side­-by-side analysis of your old system and new ML system, you realize you want to tweak it. Further, different team members often can't agree on the true objective. The ML objective should be something that is easy to measure and is a proxy for the “true”
-objective . So train on the simple ML objective, and consider having a "policy layer" on top that allows you to add additional logic (hopefully very simple logic) to do the final ranking.
+Часто вы не знаете, какова истинная цель. Вы думаете, что делаете, а затем, когда вы смотрите на данные и анализируете бок-о-бок вашу старую систему и новую систему МЛ, вы понимаете, что хотите её настроить. Кроме того разные члены команды часто не могут договориться об истинной цели. **Цель МЛ должна быть легкой для измерения и прозрачной для “настоящей” цели.** Поэтому обучайтесь  простой МЛ-цели и подумайте о том, что на самом деле  есть “слой политики”, который позволяет вам добавить дополнительную логику (надеюсь, очень простую логику), чтобы сделать окончательный рейтинг. 
 
-The easiest thing to model is a user behavior that is directly observed and attributable to an
-action of the system:
+Простейшей моделью является поведение пользователя, которое непосредственно наблюдается и относится к действию системы:
 
-1. Was this ranked link clicked?
-2. Was this ranked object downloaded?
-3. Was this ranked object forwarded/replied to/e­mailed?
-4. Was this ranked object rated?
-5. Was this shown object marked as spam/pornography/offensive?
+1. Была ли нажата эта ранжированная ссылка?
+2. Был ли загружен этот ранжированный объект?
+3. Был ли этот ранжированный объект перенаправлен/был ли ответ на него  или он отправлен по email?
+4. Был ли оценен этот ранжированный объект?
+5. Был ли показанный объект отмечен как спам/порнография/оскорбления?
 
-Avoid modeling indirect effects at first:
+Поначалу избегайте моделирования косвенных эффектов:
 
-1. Did the user visit the next day?
-2. How long did the user visit the site?
-3. What were the daily active users?
-Indirect effects make great metrics, and can be used during A/B testing and during launch
-decisions.
+1. Вернулся ли посетитель на следующий день?
+2. Как долго пользователь был на сайте?
+3. Сколько пользователей ежедневно активны?
 
-Finally, don’t try to get the machine learning to figure out:
+Косвенные эффекты хорошо улучшают показатели и могут быть использованы в А/Б тестировании и запуске решений. 
+В заключении, не пытайтесь получить от МЛ ответ:
+1. Счастлив ли пользователь использующий ваш продукт?
+2. Доволен ли пользователь взаимодействием?
+3. Улучшает ли продукт общее благополучие пользователя?
+4. Как это влияет на общее состояние компании?
 
-1. Is the user happy using the product?
-2. Is the user satisfied with the experience?
-3. Is the product improving the user’s overall well­being?
-4. How will this affect the company’s overall health?
-
-These are all important, but also incredibly hard. Instead, use proxies: if the user is happy, they will stay on the site longer. If the user is satisfied, they will visit again tomorrow. Insofar as well­being and company health is concerned, human judgement is required to connect any machine learned objective to the nature of the product you are selling and your business plan, so we don’t end up [here](https://www.youtube.com/watch?v=bq2_wSsDwkQ).
+Все это очень важно, и в тоже время невероятно сложно. Вместо этого, используйте “допущение-следствие”: если пользователи счастливы, то они останутся дольше на сайте. Если пользователь доволен взаимодействием, значит он придет и завтра. Что касается благополучия и здоровья компании, человеческое суждение требуется для того, чтобы связать любую цель МЛ  с характером продукта, который вы продаете и вашим бизнес планом, поэтому мы не закончим [здесь](https://www.youtube.com/watch?v=bq2_wSsDwkQ).
 
 #### Rule 14 - Starting with an interpretable model makes debugging easier.
 

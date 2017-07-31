@@ -164,16 +164,13 @@
 С простыми моделями проще получать обратную связь (см правило 36).
 Часто, мы используем эти вероятностные модели для принятия решений: таких как ранжирование сообщений в убывающем порядке по ожидаемому значению( т.е. вероятности от клика/загрузки/ чего то другого). **Однако, помните когда придет время выбрать какую модель использовать, решение имеет большее значение, чем вероятность получения данных данной модели** (см правило № 27). 
 
-> (3) Это верно, если у вас нет регуляризации и ваш алгоритм сходится. В целом это примерно так.
+<sup> (3) Это верно, если у вас нет регуляризации и ваш алгоритм сходится. В целом это примерно так.</sup>
 
-#### Rule 15 - Separate Spam Filtering and Quality Ranking in a Policy Layer.
+#### Правило #15: Разделяйте фильтрацию спама и ранжирование качества в слое политик.
 
-Quality ranking is a fine art, but spam filtering is a war.\* The signals that you use to determine high quality posts will become obvious to those who use your system, and they will tweak their posts to have these properties. Thus, your quality ranking should focus on ranking content that is posted in good faith. You should not discount the quality ranking learner for ranking spam highly. **Similarly, “racy” content should be handled separately from Quality Ranking.** Spam filtering is a different story. You have to expect that the features that you need to generate will be constantly changing. Often, there will be obvious rules that you put into the system (if a
-post has more than three spam votes, don’t retrieve it, et cetera). Any learned model will have to be updated daily, if not faster. The reputation of the creator of the content will play a great role.
+Ранжирование качества это изобразительное искусство, но фильтрация спама это война*. Сигналы, которые вы используете для определения высококачественных сообщений, станут очевидными тем кто использует вашу систему и они будут настраивать свои сообщения, чтобы достигнуть этих свойств. Таким образом, ваш рейтинг качества должен быть сосредоточен на ранжировании контента, который публикуется с хорошим умыслом. Вы не должны делать скидку при обучении ранжированию спаму. **Аналогичным образом,  “неприйстойный” контент должен обрабатываться отдельно от качественного ранжирования.** Фильтрация спама - это отдельная история. Вы должны быть готовы, что признаки которые вам нужно создать, будут постоянно меняться. Часто будут введены очевидные правила, которые вы запрограммируете в системе (если сообщение имеет более трех спам-голосов, не извлекает их и т. д.). Любая научная модель должна обновляться ежедневно, если не быстрее. Репутация создателя контента будет играть большую роль.
 
-At some level, the output of these two systems will have to be integrated. Keep in mind, filtering
-spam in search results should probably be more aggressive than filtering spam in email messages. Also, it is a standard practice to remove spam from the training data for the quality
-classifier.
+На некотором уровне, выход этих двух систему может быть объединен. Имейте ввиду, что, фильтрация спама в результатах поиска должна быть более агрессивной чем фильтрация спама в сообщениях электронной почты. Кроме того, стандартной практикой является удаление спама из обучающих данных для  качественного классификатора.
 
 <sup>[Google Research Blog - Lessons learned while protecting Gmail](https://research.googleblog.com/2016/03/lessons-learned-while-protecting-gmail.html?m=1)</sup>
 

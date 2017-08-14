@@ -329,15 +329,16 @@ that is specific to your system, and whatever format the machine learning system
 
 In general, measure performance of a model on the data gathered after the data you trained the model on, as this better reflects what your system will do in production. If you produce a model based on the data until January 5th, test the model on the data from January 6th. You will expect that the performance will not be as good on the new data, but it shouldn’t be radically worse. Since there might be daily effects, you might not predict the average click rate or conversion rate, but the area under the curve, which represents the likelihood of giving the positive example a score higher than a negative example, should be reasonably close.
 
-#### Rule 34 - In binary classification for filtering (such as spam detection or determining interesting e­mails), make small short­term sacrifices in performance for very clean data.
+#### Правило 34 - В бинарной классификации для фильтрации (таких как детекция спама или определении интересных писем), делайте небольшие краткосрочные жертвыв качестве для получения более чистых данных.
 
-In a filtering task, examples which are marked as negative are not shown to the user. Suppose you have a filter that blocks 75% of the negative examples at serving. You might be tempted to
-draw additional training data from the instances shown to users. For example, if a user marks an
-email as spam that your filter let through, you might want to learn from that. But this approach introduces sampling bias. You can gather cleaner data if instead during
-serving you label 1% of all traffic as “held out”, and send all held out examples to the user. Now your filter is blocking at least 74% of the negative examples. These held out examples can
-become your training data. Note that if your filter is blocking 95% of the negative examples or more, this becomes less
-viable. Even so, if you wish to measure serving performance, you can make an even tinier sample (say 0.1% or 0.001%). Ten thousand examples is enough to estimate performance quite
-accurately.
+В задаче фильтрации спама, объекты отмеченные как спам не показываются пользователю. Предположим, у вас есть фильтр, который блокирует 75% всех нежелательных писем. Вы можете попробовать собрать дополнительные обучающие данные из писем, которые показываете пользователю. Например, если пользователь  отметил письмо как спам прошедший через ваш фильтр, то вы можете узнать об этом.
+
+Но этот подход приходит к смещению выборки<sup>*</sup>. Вы можете собирать более чистые данные, если во время работы 1% всех ваших меток будет откладываться. Сейчас ваш фильтр блокируется около 74% негативных примеров. Эта отложенная выборка и есть  пример как получить обучающие данные. 
+
+Обратите внимание, что если вы фильтруете 95% негативных примеров или больше, этот подход менее жизнеспособный. Тем не менее, если вы хотите измерить эффективность работы, вы можете сделать меньше откладывать образцов (например 0.1% или 0.001%). Десять тысяч образцов достаточно, чтобы оценить эффективность довольно точно.
+
+<sup>*</sup> [Про Bias можно прочитать здесь](https://codesachin.wordpress.com/2015/08/05/on-the-biasvariance-tradeoff-in-machine-learning/)
+
 
 #### Rule 35 - Beware of the inherent skew in ranking problems.
 

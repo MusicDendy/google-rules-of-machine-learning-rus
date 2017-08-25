@@ -209,12 +209,9 @@
 
 Обратите внимание, что речь идет не о персонализации: выясните, нравится ли кому-то сначала контент в этом контексте, а затем выясните, кому это нравится больше или меньше.
 
+#### Правило 19 - Используйте очень спецефические признаки, когда сможете.
 
-#### Rule 19 - Use very specific features when you can.
-
-With tons of data, it is simpler to learn millions of simple features than a few complex features. Identifiers of documents being retrieved and canonicalized queries do not provide much
-generalization, but align your ranking with your labels on head queries.. Thus, don’t be afraid of groups of features where each feature applies to a very small fraction of your data, but overall coverage is above 90%. You can use regularization to eliminate the features that apply to too
-few examples.
+С огромным количеством данных проще получить миллион простых признаков, чем несколько сложных признаков. Идентификаторы получаемых документов и канонизированные запросы не дают большого обобщения, но выравнивают ваш рейтинг с вашими метками на главных запросах. Таким образом, не бойтесь групп признакой, где каждый признак применяется к очень небольшой части ваших данных, но общий охват превышает 90%. Вы можете использовать регуляризацию для устранения признаков, которые используются лишь в нескольких примерах.
 
 #### Rule 20 - Combine and modify existing features to create new features in human-understandable ways.
 

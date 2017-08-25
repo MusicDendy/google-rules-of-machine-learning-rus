@@ -223,17 +223,17 @@
 
 При работе с текстом есть две альтернативы. Самый суровый - это скалярное произведение. Скалярное произведение в его простейшей форме просто подсчитывает количество общих слов между запросом и документом. Затем этот признак можно дискретировать. Другой подход - это пересечение: таким образом, у нас будет признак, который присутствует тогда и только тогда, когда слово «пони» находится в документе и запросе, а другой признак присутствует, если и только если слово «the» находится в документе и запросе.
 
-#### Rule 21 - The number of feature weights you can learn in a linear model is roughly proportional to the amount of data you have.
+#### Правило 21 - Количество весов признаков, которые вы можете изучить в линейной модели, примерно пропорционально количеству данных, которые у вас есть.
 
-There are fascinating statistical learning theory results concerning the appropriate level of complexity for a model, but this rule is basically all you need to know. I have had conversations in which people were doubtful that anything can be learned from one thousand examples, or that you would ever need more than 1 million examples, because they get stuck in a certain method of learning. The key is to scale your learning to the size of your data:
+Есть увлекательные статистические результаты теории обучения, касающиеся соответствующего уровня сложности для модели, но это правило в основном все, что вам нужно знать. У меня были дискуссии, в которых люди сомневались, что все можно узнать из тысячи примеров или что вам понадобится больше 1 миллиона примеров, потому что они застряли в определенном методе обучения. Ключ заключается в масштабировании обучения вашей системы по размеру ваших данных:
 
-1. If you are working on a search ranking system, and there are millions of different words in the documents and the query and you have 1000 labeled examples, then you should use a dot product between document and query features, [TF­IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf), and a half-­dozen other highly human-­engineered features. 1000 examples, a dozen features.
-2. If you have a million examples, then intersect the document and query feature columns, using regularization and possibly feature selection. This will give you millions of features,
-but with regularization you will have fewer. Ten million examples, maybe a hundred thousand features.
-3. If you have billions or hundreds of billions of examples, you can cross the feature columns with document and query tokens, using feature selection and regularization. You will have a billion examples, and 10 million features.
+1. Если вы работаете над системой ранжирования поиска, и в документах и запросе есть миллионы разных слов, и у вас есть 1000 помеченных примеров, то вы должны использовать скалярное произведение между признаками документа и запроса, [TFIDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) и полдюжины других высокоинформативных признаков. 1000 примеров, дюжина признаков.
+2. Если у вас есть миллион примеров, то примените признак-столбцы документа и запроса, используйте регуляризацию и, возможно, отбор признаков. Это даст вам миллионы признаков,
+Но с регуляризацией у вас будет меньше. Десять миллионов примеров, возможно, сотни тысяч признаков.
+3. Если у вас миллиарды или сотни миллиардов примеров, вы можете применить пересечение признаков-столбцов с помощью токенов документов и запросов, используя отбор признаков и регуляризацию. У вас будет миллиард примеров и 10 миллионов признаков.
 
-Statistical learning theory rarely gives tight bounds, but gives great guidance for a starting point.
-In the end, use Rule **#28** to decide what features to use.
+Статистическая теория обучения редко задает рамки, но дает хорошую рекомендацию для отправной точки.
+В заверешении скажу, используйте правило **#28**, чтобы определить, какие признаки использовать.
 
 #### Rule 22 - Clean up features you are no longer using.
 

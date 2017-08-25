@@ -235,12 +235,9 @@
 Статистическая теория обучения редко задает рамки, но дает хорошую рекомендацию для отправной точки.
 В заверешении скажу, используйте правило **#28**, чтобы определить, какие признаки использовать.
 
-#### Rule 22 - Clean up features you are no longer using.
+#### Правило 22 - Убирайте признаки, которые вы больше не используете.
 
-Unused features create technical debt. If you find that you are not using a feature, and that combining it with other features is not working, then drop it out of your infrastructure. You want to keep your infrastructure clean so that the most promising features can be tried as fast as
-possible. If necessary, someone can always add back your feature. Keep coverage in mind when considering what features to add or keep. How many examples are covered by the feature? For example, if you have some personalization features, but only
-8% of your users have any personalization features, it is not going to be very effective. At the same time, some features may punch above their weight. For example, if you have a
-feature which covers only 1% of the data, but 90% of the examples that have the feature are positive, then it will be a great feature to add.
+Неиспользуемые признаки создают технический долг. Если обнаружите, что не используете какой-то признак и комбинация его с другими признаками не работает, то можете отказаться от него. Вы же хотите, чтобы инфраструктура была чистой, так чтобы наиболее перспективные признаки можно было быстро попробовать. При необходимости кто-то всегда может добавить такой признак. Помните о том, какие признаки добавлять или хранить. Сколько примеров охвачено этим признаком? Например, есть некоторые признаки персонализации, но только у 8% пользователей они присутствуют, то это будет не очень эффективно. В то же время некоторые признаки могут пробивать выше их веса. Например, если есть признак, который покрывает только 1% данных, но 90% примеров, имеющих этот признак, являются положительными, то это будет отличный признак для добавления в модель.
 
 ### Human Analysis of the System
 

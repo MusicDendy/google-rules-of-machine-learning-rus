@@ -198,8 +198,6 @@
 
 Основная проблема с факторизационными моделями и глубоким оубчением заключается в том, что они "не выпуклые". Таким образом, нет никакой гарантии, что оптимальное решение может быть аппроксимировано или найдено, а локальные минимумы, найденные на каждой итерации, могут быть разными. Этот вариант затрудняет оценку изменения на вашу систему: является оно значимым или случайным. Создавая модель без глубоких признаков, вы можете получить отличную базовую эффективность. После достижения этой базовой линии(baseline) вы можете попробовать более сложные(эзотерические) подходы.
 
-#### Rule 18 - Explore with features of content that generalize across contexts.
-
 #### Правило 18 - Исследуйте особенности контента, которые обобщают контексты.
 
 Часто система машинного обучения это только малая часть одной большео картины. 
@@ -213,18 +211,17 @@
 
 С огромным количеством данных проще получить миллион простых признаков, чем несколько сложных признаков. Идентификаторы получаемых документов и канонизированные запросы не дают большого обобщения, но выравнивают ваш рейтинг с вашими метками на главных запросах. Таким образом, не бойтесь групп признакой, где каждый признак применяется к очень небольшой части ваших данных, но общий охват превышает 90%. Вы можете использовать регуляризацию для устранения признаков, которые используются лишь в нескольких примерах.
 
-#### Rule 20 - Combine and modify existing features to create new features in human-understandable ways.
+#### Правило 20 - Объединяйте и изменяйте существующие признаки, чтобы создавать новые человеко-понятные признаки.
 
-There are a variety of ways to combine and modify features. Machine learning systems such as TensorFlow allow you to pre­process your data through [transformations](https://www.tensorflow.org/tutorials/linear/overview#feature-columns-and-transformations). The two most standard approaches are “discretizations” and “crosses”.
+Существует множество способов комбинирования и модификации признаков. Системы машинного обучения, такие как TensorFlow, позволяют выполнять предварительную обработку ваших данных с помощью [преобразований](https://www.tensorflow.org/tutorials/linear/overview#feature-columns-and-transformations). Двумя наиболее распространнеными подходами являются «дискретизация» и "пересечение".
 
-Discretization consists of taking a continuous feature and creating many discrete features from it. Consider a continuous feature such as age. You can create a feature which is 1 when age is less than 18, another feature which is 1 when age is between 18 and 35, et cetera. Don’t overthink the boundaries of these histograms: basic quantiles will give you most of the impact. Crosses combine two or more feature columns. A feature column, in TensorFlow's terminology, is a set of homogenous features, (e.g. {male, female}, {US, Canada, Mexico}, et cetera). A cross is a new feature column with features in, for example, *{male, female} × {US,Canada, Mexico}*. This new feature column will contain the feature (male, Canada). If you are using TensorFlow and you tell TensorFlow to create this cross for you, this (male, Canada) feature will be present
-in examples representing male Canadians. Note that it takes massive amounts of data to learn models with crosses of three, four, or more base feature columns.
+**Дискретизация** состоит в том, чтобы использовать непрерывный признак и создавать из нее множество дискретных признаков. Рассмотрим непрерывный признак, такой ​​как возраст. Вы можете создать признак, который равен 1, когда возраст меньше 18, другой признак, который равен 1, когда возраст составляет от 18 до 35 лет, и так далее. Не переусердствуйте над границами этих гистограмм: основные квантили дадут вам большую часть важности(влияния). 
 
-Crosses that produce very large feature columns may overfit. For instance, imagine that you are doing some sort of search, and you have a feature column with words in the query, and you
-have a feature column with words in the document. You can combine these with a cross, but you will end up with a lot of features (see Rule **#21**). When working with text there are two
-alternatives. The most draconian is a dot product. A dot product in its simplest form simply counts the number of common words between the query and the document. This feature can
-then be discretized. Another approach is an intersection: thus, we will have a feature which is present if and only if the word “pony” is in the document and the query, and another feature
-which is present if and only if the word “the” is in the document and the query.
+**"Пересечение"** объединяют два или более признаков. Признак-столбец в терминологии TensorFlow представляет собой набор однородных признаков (например: _{мужчина, женщина} , {США, Канада, Мексика}_ и т. Д.). "Пересечение" - это новый признак-столбец с признаками, например, _{мужчина, женщина} x {США, Канада, Мексика}_. Этот новый признак-столбец будет содержать этот признак (мужчина, Канада). Если вы используете TensorFlow, и вы укажите TensorFlow создавать это пересечение, тогда этот признак (мужчина, Канада) будет присутствовать в примерах, представляющих мужчин-канадцев. Обратите внимание, что для изучения моделей требуется огромное количество данных с помощью пересечений из трех, четырех или более базовых столбцов.
+
+Пересечение, которые производят очень много признаков-столбцов, могут переобучаться. Например, представьте, что вы выполняете какой-то поиск, и у вас есть признак-столбец со словами в запросе, и у вас есть признак-столбец со словами в документе. Вы можете комбинировать методом пересечения, но в итоге у вас будет много признаков (см. Правило **#21**).
+
+При работе с текстом есть две альтернативы. Самый суровый - это скалярное произведение. Скалярное произведение в его простейшей форме просто подсчитывает количество общих слов между запросом и документом. Затем этот признак можно дискретировать. Другой подход - это пересечение: таким образом, у нас будет признак, который присутствует тогда и только тогда, когда слово «пони» находится в документе и запросе, а другой признак присутствует, если и только если слово «the» находится в документе и запросе.
 
 #### Rule 21 - The number of feature weights you can learn in a linear model is roughly proportional to the amount of data you have.
 

@@ -174,20 +174,21 @@
 
 <sup>[Google Research Blog - Lessons learned while protecting Gmail](https://research.googleblog.com/2016/03/lessons-learned-while-protecting-gmail.html?m=1)</sup>
 
-## Feature engineering
+## ML этап II: Feature Engineering
 
-> In the first phase of the lifecycle of a machine learning system, the important issue is to get the training data into the learning system, get any metrics of interest instrumented, and create a serving infrastructure. **After you have a working end to end system with unit and system tests instrumented, Phase II begins.**
+> На первом этапе жизненого цикла системы машинного обучения важными задачами являются получение данных для обучения в обучающую систему, получение любых показателей, представляющих интерес и создание обслуживающей инфраструктуры. **После того, как у вас есть работающая "от и до" система с модульными и системными тестами, начинается этап 2.**
 
-#### Rule 16 - Plan to launch and iterate.
+На втором этапе есть много неприятных особенностей. Существует множество очевидных признаков, которые можно добавить в систему. Таким образом, вторая фаза машинного обучения включает в себя использование как можно большего числа признаков и объединение их интуитивно понятными способами. На этом этапе все показатели должны расти. Будет много запусков, и это прекрасное время чтобы подключить достаточно много инженеров, которые могут объединить все данные, необходимые для создания действительно классной системы обучения.
 
-Don’t expect that the model you are working on now will be the last one that you will launch, or even that you will ever stop launching models. Thus consider whether the complexity you are
-adding with this launch will slow down future launches. Many teams have launched a model per quarter or more for years. There are three basic reasons to launch new models:
+#### Правило 16 - Планируйте запуск и итерации.
 
-1. you are coming up with new features,
-2. you are tuning regularization and combining old features in new ways, and/or
-3. you are tuning the objective.
+Не ожидайте, что модель, над которой вы сейчас работаете, будет последней, которую вы запустите, и даже тогда когда вы перестанете запускать модели. Подумайте, будет ли сложность, которую вы добавляете с этим запуском, замедлять будущие запуски. Многие команды запустили модель через квартал или более в течение многих лет. Существуют три основные причины запуска новых моделей:
 
-Regardless, giving a model a bit of love can be good: looking over the data feeding into the example can help find new signals as well as old, broken ones. So, as you build your model, think about how easy it is to add or remove or recombine features. Think about how easy it is to create a fresh copy of the pipeline and verify its correctness. Think about whether it is possible to have two or three copies running in parallel. Finally, don’t worry about whether feature 16 of 35 makes it into this version of the pipeline. You’ll get it next quarter.
+1. Вы придумываете новые признаки,
+2. Вы настраиваете регуляризацию и комбинируете старые признаки по-новому
+3. И/или вы корректируете цель.
+
+Несмотря на все это, хорошо бы все равно дать вашей модели немного: изучение данных, используемых как пример, может помочь найти новые сигналы, а также старые(сломанные). Поэтому, когда вы строите свою модель, подумайте о том, как легко добавлять или удалять или рекомбинировать признаки. Подумайте, как легко создать новую копию конвейера и проверить его правильность. Подумайте, возможно ли иметь два или три экземпляра, работающих параллельно. Наконец, не беспокойтесь о том, входит ли признак 16 из 35 в эту версию конвейера. Вы добавите его в следующем квартале.
 
 #### Rule 17 - Start with directly observed and reported features as opposed to learned features.
 

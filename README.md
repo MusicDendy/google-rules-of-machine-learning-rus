@@ -190,22 +190,25 @@
 
 Несмотря на все это, хорошо бы все равно дать вашей модели немного: изучение данных, используемых как пример, может помочь найти новые сигналы, а также старые(сломанные). Поэтому, когда вы строите свою модель, подумайте о том, как легко добавлять или удалять или рекомбинировать признаки. Подумайте, как легко создать новую копию конвейера и проверить его правильность. Подумайте, возможно ли иметь два или три экземпляра, работающих параллельно. Наконец, не беспокойтесь о том, входит ли признак 16 из 35 в эту версию конвейера. Вы добавите его в следующем квартале.
 
-#### Rule 17 - Start with directly observed and reported features as opposed to learned features.
+#### Правило 17 - Начните с непосредственно наблюдаемых и задокументированных признаков вместо "обученных" признаков.
 
-This might be a controversial point, but it avoids a lot of pitfalls. First of all, let’s describe what a
-learned feature is. A learned feature is a feature generated either by an external system (such as an unsupervised clustering system) or by the learner itself (e.g. via a factored model or deep learning). Both of these can be useful, but they can have a lot of issues, so they should not be in
-the first model. If you use an external system to create a feature, remember that the system has its own
-objective. The external system's objective may be only weakly correlated with your current objective. If you grab a snapshot of the external system, then it can become out of date. If you
-update the features from the external system, then the meanings may change. If you use an external system to provide a feature, be aware that they require a great deal of care.
-The primary issue with factored models and deep models is that they are non­-convex. Thus, there is no guarantee that an optimal solution can be approximated or found, and the local
-minima found on each iteration can be different. This variation makes it hard to judge whether the impact of a change to your system is meaningful or random. By creating a model without
-deep features, you can get an excellent baseline performance. After this baseline is achieved, you can try more esoteric approaches.
+Это может быть спорным моментом, но это позволяет избежать множества подводных камней. Прежде всего, дадим определение, что такое "обученный" признак. "Обученный" признак - это признак, созданный либо внешней системой (например, в ходе кластеризации), либо в процессе обучения (например, через факторизационную модель или глубокое обучение). Оба эти способа могут быть полезны, но у них может быть много проблем, поэтому они не должны быть в первой модели.
+
+Если вы используете внешнюю систему для создания признака, помните, что система имеет свою собственную цель. Цель внешней системы может быть слабо коррелирована с вашей текущей задачей. Если вы получите слепок(snapshot) внешней системы, то он может устареть. Если вы обновите признаки из внешней системы, значения могут измениться. Если вы все таки используете внешнюю систему для генерации(наполнения) признака, то имейте в виду, что требуется большая осторожность.
+
+Основная проблема с факторизационными моделями и глубоким оубчением заключается в том, что они "не выпуклые". Таким образом, нет никакой гарантии, что оптимальное решение может быть аппроксимировано или найдено, а локальные минимумы, найденные на каждой итерации, могут быть разными. Этот вариант затрудняет оценку изменения на вашу систему: является оно значимым или случайным. Создавая модель без глубоких признаков, вы можете получить отличную базовую эффективность. После достижения этой базовой линии(baseline) вы можете попробовать более сложные(эзотерические) подходы.
 
 #### Rule 18 - Explore with features of content that generalize across contexts.
 
-Often a machine learning system is a small part of a much bigger picture. For example, if you imagine a post that might be used in What’s Hot, many people will plus­-one, re-­share, or
-comment on a post before it is ever shown in What’s Hot. If you provide those statistics to the learner, it can promote new posts that it has no data for in the context it is optimizing. YouTube Watch Next could use number of watches, or co­-watches (counts of how many times one video was watched after another was watched) from YouTube search. You can also use explicit user
-ratings. Finally, if you have a user action that you are using as a label, seeing that action on the document in a different context can be a great feature. All of these features allow you to bring new content into the context. Note that this is not about personalization: figure out if someone likes the content in this context first, then figure out who likes it more or less.
+#### Правило 18 - Исследуйте особенности контента, которые обобщают контексты.
+
+Часто система машинного обучения это только малая часть одной большео картины. 
+Например, если вы представите пост, который может быть использован в разделе "Что нового"(What’s Hot), множество людей лайкнут, отрепостят или прокомментируют пост даже прежде, чем он будет показан в разделе "Что нового"(What’s Hot). Если вы предоставляете такую статистику алгоритму обучения, это может продвинуть новые посты, которые не имеют данных, в том контексте который оптимизируется. YouTube Watch Next мог использовать количество просмотров, или со-просмотры (количество просмотров одного видео после другого) из поиска YouTube. Вы также можете использовать явные пользовательские рейтинги.
+
+Наконец, если у вас есть действие пользователя, которое вы используете в качестве метки, наблюдение такого же действия над документом в другом контексте может стать отличным признаком. Все эти признаки позволяют вам вводить новый контент в контекст. 
+
+Обратите внимание, что речь идет не о персонализации: выясните, нравится ли кому-то сначала контент в этом контексте, а затем выясните, кому это нравится больше или меньше.
+
 
 #### Rule 19 - Use very specific features when you can.
 

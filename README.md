@@ -321,9 +321,9 @@ you can do to re­use code. For example, you can create an object that is partic
 and errors can be tested easily. Then, once you have gathered all the information, during serving or training, you run a common method to bridge between the human-­readable object
 that is specific to your system, and whatever format the machine learning system expects. **This eliminates a source of training-­serving skew.** As a corollary, try not to use two different programming languages between training and serving ­ that decision will make it nearly impossible for you to share code.
 
-#### Rule 33 - If you produce a model based on the data until January 5th, test the model on the data from January 6th and after.
+#### Правило 33 - Если вы создадите модель на основе данных до 5 января, проверьте модель на данных с 6 января и после.
 
-In general, measure performance of a model on the data gathered after the data you trained the model on, as this better reflects what your system will do in production. If you produce a model based on the data until January 5th, test the model on the data from January 6th. You will expect that the performance will not be as good on the new data, but it shouldn’t be radically worse. Since there might be daily effects, you might not predict the average click rate or conversion rate, but the area under the curve, which represents the likelihood of giving the positive example a score higher than a negative example, should be reasonably close.
+В целом, измерьте производительность модели на данных, собранных после данных, на которых вы обучали модель, так как это лучше отражает то, что ваша система будет делать в реальности. Если вы создадите модель на основе данных до 5 января, проверьте модель на данных с 6 января. Вы ожидаете, что производительность не будет столь же хороша в новых данных, но она не должна быть радикально хуже. Поскольку могут быть ежедневные эффекты, вы не можете прогнозировать среднюю скорость клика или коэффициент конверсии, но площадь под кривой, которая представляет вероятность принадлежности положительному классу, чем к отрицательному, должна быть достаточно близкой.
 
 #### Правило 34 - В бинарной классификации для фильтрации (таких как детекция спама или определении интересных писем), делайте небольшие краткосрочные жертвыв качестве для получения более чистых данных.
 

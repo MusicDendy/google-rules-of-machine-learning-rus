@@ -253,17 +253,13 @@
 
 <sup>[Google Research Blog - How to measure translation quality in your user interfaces](https://research.googleblog.com/2015/10/how-to-measure-translation-quality-in.html?m=1)
 
-#### Rule 24 - Measure the delta between modules
+#### Правило 24 - Измеряйте дельту между моделями
 
-One of the easiest, and sometimes most useful measurements you can make before any users have looked at your new model is to calculate just how different the new results are from production. For instance, if you have a ranking problem, run both models on a sample of queries through the entire system, and look at the size of the symmetric difference of the results
-(weighted by ranking position). If the difference is very small, then you can tell without running an experiment that there will be little change. If the difference is very large, then you want to make sure that the change is good. Looking over queries where the symmetric difference is high
-can help you to understand qualitatively what the change was like. Make sure, however, that the system is stable. Make sure that a model when compared with itself has a low (ideally zero)
-symmetric difference.
+Одно из самых простых, а иногда и самых полезных измерений, которые вы можете сделать до того, как пользователи просмотрят вашу новую модель, - это рассчитать, насколько отличаются новые результаты от текущих(которые используются). Например, если вы решаете задачу ранжирования, прогоните выборку запросов через всю систему для обеих моделей и посмотрите на размер [симметрической разности](https://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D0%BC%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%80%D0%B0%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D1%8C) результатов (взвешенной по ранжирующей позиции). Если разница очень мала, то вы можете сказать, не экспериментируя, что изменений мало. Если разница очень велика, то вы хотите убедиться, что это хорошо. Изучение запросов, где симметричная разница высока, может помочь вам качественно понять, что изменилось. Однако убедитесь, что система стабильна. Убедитесь, что модель по сравнению с сама собой имеет низкую (идеально нулевую) симметричную разницу.
 
-#### Rule 25 - When choosing models, utilitarian performance trumps predictive power.
+#### Правило 25 - При выборе между моделями, помните что утилитарная производительность превосходит прогностическую силу.
 
-Your model may try to predict click­-through-­rate. However, in the end, the key question is what you do with that prediction. If you are using it to rank documents, then the quality of the final ranking matters more than the prediction itself. If you predict the probability that a document is spam and then have a cutoff on what is blocked, then the precision of what is allowed through matters more. Most of the time, these two things should be in agreement: when they do not
-agree, it will likely be on a small gain. Thus, if there is some change that improves log loss but degrades the performance of the system, look for another feature. When this starts happening more often, it is time to revisit the objective of your model.
+Ваша модель может попытаться предсказать вероятность перехода по клику. Однако, в конце концов, ключевым вопросом является то, что вы делаете с этим прогнозом. Если вы используете его для ранжирования документов, то качество окончательного рейтинга имеет большее значение, чем само предсказание. Если вы прогнозируете вероятность того, что документ является спамом, а затем отключите блокировку, то точность того, что разрешено повысится. В большинстве случаев эти две вещи должны быть в согласии: когда они не согласны, это, вероятно, будет иметь небольшой выигрыш. Таким образом, если есть некоторые изменения, которые уменьшают ошибку, но ухудшают производительность системы, то ищите другой признак. Если это происходит часто, пришло время вернуться к цели вашей модели.
 
 #### Rule 26 - Look for patterns in the measured errors, and create new features.
 

@@ -278,17 +278,14 @@
 
 Единственный способ понять, как такая система будет работать долговременно, состоит в том, чтобы она тренировалась только по данным, полученным, когда модель была вживую. Это очень сложно.
 
-### Training-Serving Skew
+### Тренировочное-Рабочее отклонение
 
-> Training­-serving skew is a difference between performance during training and performance
-during serving. This skew can be caused by:
-* a discrepancy between how you handle data in the training and serving pipelines, or
-* a change in the data between when you train and when you serve, or
-* a feedback loop between your model and your algorithm.
+> Тренировочное-Рабочее отклонение - это разница между качеством во время обучения во время эксплуатации. Этот перекос может быть вызван:
+* несоответствие между тем, как вы обрабатываете данные на тренировочном и рабочем конверах
+* разные данные между обучением и эксплуатацией
+* циклом обратной связи между вашей моделью и вашим алгоритмом.
 
-> We have observed production machine learning systems at Google with training-­serving skew
-that negatively impacts performance. The best solution is to explicitly monitor it so that system
-and data changes don’t introduce skew unnoticed.
+> Мы наблюдаем системы машинного обучения в Google с таким отклонением и это отрицательно влияет на производительность. Лучшим решением является прямое наблюдение за ним, чтобы изменения системы и данных не внедряли незаметно.
 
 #### Rule 29 - The best way to make sure that you train like you serve is to save the set of features used at serving time, and then pipe those features to a log to use them at training time.
 

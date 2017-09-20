@@ -268,9 +268,9 @@
 
 Как только у вас появятся объекты где, модель ошибалась, найдите закономерности, которые находятся за пределами текущего набора признаков. Например, если система снижает рейтинг длинных сообщений, то добавьте длину сообщения. Не будьте слишком конкретны в отношении добавленных признаков. Если вы собираетесь добавить длину сообщения, не пытайтесь угадать, что это означает, просто добавьте дюжину признаков и модель решит, что с ними делать (см. Правило **#21**). Это самый простой способ получить то, что вы хотите.
 
-#### Rule 27 - Try to quantify observed undesirable behavior.
+#### Правило 27 - Попробуйте количественно оценить наблюдаемое нежелательное поведение.
 
-Some members of your team will start to be frustrated with properties of the system they don’t like which aren’t captured by the existing loss function. At this point, they should do whatever it takes to turn their gripes into solid numbers. For example, if they think that too many “gag apps” are being shown in Play Search, they could have human raters identify gag apps. (You can feasibly use human-­labelled data in this case because a relatively small fraction of the queries account for a large fraction of the traffic.) If your issues are measurable, then you can start using them as features, objectives, or metrics. The general rule is **“measure first, optimize second”**.
+Некоторые члены вашей команды начнут разочаровыватся в свойствах системы, которые им не нравятся, которые не захватываются существующей функцией потерь. В этот момент они должны делать все возможное, чтобы превратить их "боль" в цифры. Например, если они думают, что слишком много «приложений для gag» отображаются в Play Search, они могут заставить людей оценивать приложения gag. (В этом случае вы можете использовать данные, размеченные человеком, потому что относительно небольшая часть запросов учитывает значительную часть трафика.) Если ваши проблемы измеримы, вы можете начать использовать их в качестве признаков, целей или показателей. Общее правило: **“сначала измеряйте, потом оптимизируйте”**.
 
 #### Rule 28 - Be aware that identical short-term behavior does not imply identical long-term behavior.
 

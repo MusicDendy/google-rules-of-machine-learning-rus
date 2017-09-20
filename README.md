@@ -287,9 +287,9 @@
 
 > Мы наблюдаем системы машинного обучения в Google с таким отклонением и это отрицательно влияет на производительность. Лучшим решением является прямое наблюдение за ним, чтобы изменения системы и данных не внедряли незаметно.
 
-#### Rule 29 - The best way to make sure that you train like you serve is to save the set of features used at serving time, and then pipe those features to a log to use them at training time.
+#### Правило 29 - Лучший способ убедиться, что вы тренируетесь так же как и в эксплуатации - это сохранить весь датасет, используемых во время эксплуатации, а затем использовать их для обучения.
 
-Even if you can’t do this for every example, do it for a small fraction, such that you can verify the consistency between serving and training (see Rule **#37**). Teams that have made this measurement at Google were sometimes surprised by the results. YouTube home page switched to logging features at serving time with significant quality improvements and a reduction in code complexity, and many teams are switching their infrastructure as we speak.
+Даже если вы не можете сделать это для каждого объекта, то сохраните часть данных, чтобы вы могли проверить соответствие между эксплуатацией и обучением (см. Правило **#37**). Результаты, которые были получены в Google удивили нас. Для домашней страницы YouTube включение логгирования датасета(признаков) во время эксплуатации значительно улучшило качество и уменьшило сложность кода. Многие команды после этого переделали свою инфраструктуру так как мы сказали.
 
 #### Rule 30 - Importance weight sampled data, don't arbitrarily drop it!
 

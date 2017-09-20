@@ -272,13 +272,11 @@
 
 Некоторые члены вашей команды начнут разочаровыватся в свойствах системы, которые им не нравятся, которые не захватываются существующей функцией потерь. В этот момент они должны делать все возможное, чтобы превратить их "боль" в цифры. Например, если они думают, что слишком много «приложений для gag» отображаются в Play Search, они могут заставить людей оценивать приложения gag. (В этом случае вы можете использовать данные, размеченные человеком, потому что относительно небольшая часть запросов учитывает значительную часть трафика.) Если ваши проблемы измеримы, вы можете начать использовать их в качестве признаков, целей или показателей. Общее правило: **“сначала измеряйте, потом оптимизируйте”**.
 
-#### Rule 28 - Be aware that identical short-term behavior does not imply identical long-term behavior.
+#### Правило 28 - Имейте в виду, что идентичное краткосрочное поведение не означает идентичного долгосрочного поведения.
 
-Imagine that you have a new system that looks at every doc_id and exact_query, and then calculates the probability of click for every doc for every query. You find that its behavior is
-nearly identical to your current system in both side by sides and A/B testing, so given its simplicity, you launch it. However, you notice that no new apps are being shown. Why? Well,
-since your system only shows a doc based on its own history with that query, there is no way to learn that a new doc should be shown.
+Представьте, что у вас есть новая система, которая смотрит на каждый doc_id и exact_query, а затем вычисляет вероятность клика для каждого документа для каждого запроса. Вы обнаружите, что поведение идентично как в текущей системе, так и по A/B-тестированию, поэтому, учитывая ее простоту, вы запускаете ее. Однако вы заметите, что никаких новых приложений не отображается. Почему? Потому что система показывает только документ, основанный на собственной истории с этим запросом, нет способа узнать, что должен быть показан новый документ.
 
-The only way to understand how such a system would work long­term is to have it train only on data acquired when the model was live. This is very difficult.
+Единственный способ понять, как такая система будет работать долговременно, состоит в том, чтобы она тренировалась только по данным, полученным, когда модель была вживую. Это очень сложно.
 
 ### Training-Serving Skew
 

@@ -295,15 +295,10 @@
 
 Когда у вас слишком много данных, возникает соблазн взять файлы c  1 по 12 и игнорировать файлы 13-99. Это ошибка: удаление данных из обучающей выборки вызвало проблемы у нескольких команд (см. Правило **6**). Хотя данные, которые никогда не показываются пользователю, можно отбросить, "вес значимости" лучше оставить. "Вес значимости" на примере значит, что собираетесь использовать объект X с вероятностью 30%, то присвоите ему вес 10/3. Для "весов значимости" все калибровочные свойства, обсуждаемые в правиле **#14**, сохраняются.
 
-#### Rule 30 - Importance weight sampled data, don't arbitrarily drop it!
+#### Правило 31 - Помните, что если вы присоединяете данные из таблицы при обучении и эксплуатации, данные в таблице могут измениться.
 
-When you have too much data, there is a temptation to take files 1­12, and ignore files 13­99. This is a mistake: dropping data in training has caused issues in the past for several teams (see Rule **6**). Although data that was never shown to the user can be dropped, importance weighting is best for the rest. Importance weighting means that if you decide that you are going
-to sample example X with a 30% probability, then give it a weight of 10/3. With importance weighting, all of the calibration properties discussed in Rule **#14** still hold.
-
-#### Rule 31 - Beware that if you join data from a table at training and serving time, the data in the table may change.
-
-Say you join doc ids with a table containing features for those docs (such as number of comments or clicks). Between training and serving time, features in the table may be changed.
-Your model's prediction for the same document may then differ between training and serving. The easiest way to avoid this sort of problem is to log features at serving time (see Rule **#32**). If the table is changing only slowly, you can also snapshot the table hourly or daily to get reasonably close data. Note that this still doesn’t completely resolve the issue.
+Предположим, вы присоединили идентификаторы документов с таблицей, содержащей признаки этих документов (например, количество комментариев или кликов). Между тренировкой и эксплуатацией признаки в таблице могут измениться.
+Тогда предсказание вашей модели для одного и того же документа может отличаться между обучением и эксплуатацией. Самый простой способ избежать такого рода проблем - логгировать признаки во время эксплуатации (см. Правило **#32**). Если таблица меняется медленно, вы можете делать копию таблицу раз в час или ежедневно, чтобы получить достаточно приближенные данные. Обратите внимание, что этот способ все еще не полностью разрешает проблему.
 
 #### Правило 32 - Повторно используйте код между вашим тренировочным конвейером и вашим рабочим конвейером, когда это возможно.
 

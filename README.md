@@ -278,7 +278,7 @@
 
 Единственный способ понять, как такая система будет работать долговременно, состоит в том, чтобы она тренировалась только по данным, полученным, когда модель была вживую. Это очень сложно.
 
-### Тренировочное-Рабочее отклонение
+### Тренировочное-Рабочее отклонение(смещение)
 
 > Тренировочное-Рабочее отклонение - это разница между качеством во время обучения во время эксплуатации. Этот перекос может быть вызван:
 * несоответствие между тем, как вы обрабатываете данные на тренировочном и рабочем конверах
@@ -318,22 +318,15 @@
 
 <sup>*</sup> [Про Bias можно прочитать здесь](https://codesachin.wordpress.com/2015/08/05/on-the-biasvariance-tradeoff-in-machine-learning/)
 
+#### Правило 35 - Остерегайтесь перекоса(отклонения) свойственного задачам ранжирования.
 
-#### Rule 35 - Beware of the inherent skew in ranking problems.
+Когда вы радикально меняете алгоритм ранжирования так, чтобы отображались другие результаты, вы фактически меняете данные, которые ваш алгоритм увидит в будущем. Этот вид перекоса появится, и вы должны спроектировать свою модель вокруг него. Существует несколько разных подходов к решению. Все эти подходы - это способы "поддержать" данные, которые ваша модель уже увидела.
 
-When you switch your ranking algorithm radically enough that different results show up, you have effectively changed the data that your algorithm is going to see in the future. This kind of skew will show up, and you should design your model around it. There are multiple different approaches. These approaches are all ways to favor data that your model has already seen.
+1. Делайте сильную регуляризацию признаков, которые охватывают большое количество запросов, в отличие от тех признаков, которые работают только для одиночных запросов. Таким образом, модель будет поддерживать признаки, характерные для одного или нескольких запросов вместо признаков, которые затрагиваются все запросы. Такой подход может помочь предотвратить попадание очень популярных результатов в нерелевантные запросы. Обратите внимание, что это противоречит более традиционным советам относительно сильной регуляризации столбцов-признаков с более уникальными значениями.
+2. Используйте признаки только с положительными весами. Таким образом, любой хороший признак будет лучше, чем "неизвестный" признак.
+3. Не используйт только признаки на основе характеристик документов. Это крайний случай №1. Например, даже если данное приложение является часто скачиваемым независимо от запросов, вы же не будете показывать его везде <sup>4</ sup>. Не имея только признаков на основе характеристик приложения(документа), это просто.
 
-1. Have higher regularization on features that cover more queries as opposed to those features that are on for only one query. This way, the model will favor features that are
-specific to one or a few queries over features that generalize to all queries. This approach can help prevent very popular results from leaking into irrelevant queries. Note
-that this is opposite the more conventional advice of having more regularization on feature columns with more unique values.
-2. Only allow features to have positive weights. Thus, any good feature will be better than a feature that is “unknown”.
-3. Don’t have document­only features. This is an extreme version of #1. For example, even if a given app is a popular download regardless of what the query was, you don’t want to
-show it everywhere<sup>4</sup>. Not having document­only features keeps that simple.
-
-<sup>4 - The reason you don’t want to show a specific popular app everywhere has to do with the importance of
-making all the desired apps reachable. For instance, if someone searches for “bird watching app”, they
-might download “angry birds”, but that certainly wasn’t their intent. Showing such an app might improve
-download rate, but leave the user’s needs ultimately unsatisfied.</sup>
+<sup> 4 - Причина, по которой вы не хотите показывать конкретное популярное приложение во всем мире, связана с важностью достижения всех желаемых приложений. Например, если кто-то ищет «приложение для наблюдения за птицами», они могут загружать «Angry Birds», но это, конечно же, не было их намерением. Отображение такого приложения может повысить скорость загрузки, но в конечном итоге не удовлетворяет потребности пользователя. </ Sup>
 
 #### Rule 36 - Avoid feedback loops with positional features.
 

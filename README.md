@@ -340,16 +340,13 @@
 2. Разница между качеством на отложенных данных и данными «следующего дня». Опять же, такой эффект всегда будет существовать. **Вы должны настроить свою регуляризацию так, чтобы максимизировать качество для данных "следующего дня".** Однако большие потери в качетсве между отложенными данными и данными "следующего дня" могут указывать на то, что некоторые признаки зависят от времени и, возможно, ухудшают качество модели.
 3. Разница между качетсвом данных «следующего дня» и живыми данными. Если вы применяете модель к объекту в обучающих данных и такому же объекту при эксплуатации, она должна дать вам точно такой же результат (см. Правило **#5**). Таким образом, несоответствие здесь, вероятно, указывает на инженерную ошибку.
 
-## Slow Growth and Optimization and Complex models
+## Медленный рост, оптимизация, сложные модели.
 
-> There will be certain indications that the second phase is reaching a close. First of all, your monthly gains will start to diminish. You will start to have tradeoffs between metrics: you will see some rise and others fall in some experiments. This is where it gets interesting. Since the gains
-are harder to achieve, the machine learning has to get more sophisticated. A caveat: this section has more blue-­sky rules than earlier sections. We have seen many teams
-go through the happy times of Phase I and Phase II machine learning. Once Phase III has been reached, teams have to find their own path.
+> Будут определенные индикаторы того, что вторая фаза подходит к концу. Прежде всего, ваш ежемесячный прирост начнет уменьшаться. У вас начнутся компромиссы между метриками: вы увидите увеличение по одним и падение по другим. Вот где это становится интересным. Поскольку достижение успеха усложняется, то и машинное обучение должно стать более сложным. Оговорка: в этом разделе больше правил "голубого неба", чем в предыдущих разделах. Мы видели, что многие команды прошли счастливые времена обучения на этапах I и Фазы II. Как только этап III будет достигнут, команда должна найти свой собственный путь.
 
-#### Rule 38 - Don't waste time on new features if unaligned objectives have become the issue.
+#### Правило 38 - Не тратьте время на новые признаки, если проблемы с невыполнением обязательств стали проблемой.
 
-As your measurements plateau, your team will start to look at issues that are outside the scope of the objectives of your current machine learning system. As stated before, if the product goals are not covered by the existing algorithmic objective, you need to change either your objective
-or your product goals. For instance, you may optimize clicks, plus-­ones, or downloads, but make launch decisions based in part on human raters.
+Когда вы достигните плато по показателям, ваша команда начнет смотреть на задачи, выходящие за рамки задач вашей нынешней системы машинного обучения. Как указывалось ранее, если цели продукта не покрываются существующим алгоритмической целью, вам необходимо изменить цель или цели вашего продукта. Например, вы можете оптимизировать клики, лайки или загрузки, но принимать решения о запуске, основанные частично на человеческой оценке.
 
 #### Rule 39 - Launch decisions are a proxy for long-term product goals.
 

@@ -372,8 +372,7 @@
 
 #### Rule 41 - When performance plateaus, look for qualitatively new sources of information to add rather than refining existing signals.
 
-You’ve added some demographic information about the user. You've added some information about the words in the document. You have gone through template exploration, and tuned the
-regularization. You haven’t seen a launch with more than a 1% improvement in your key metrics in a few quarters. Now what?
+You’ve added some demographic information about the user. You've added some information about the words in the document. You have gone through template exploration, and tuned the regularization. You haven’t seen a launch with more than a 1% improvement in your key metrics in a few quarters. Now what?
 It is time to start building the infrastructure for radically different features, such as the history of documents that this user has accessed in the last day, week, or year, or data from a different property. Use [wikidata](https://en.wikipedia.org/wiki/Wikidata) entities or something internal to your company (such as Google’s [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_Graph)). Use deep learning. Start to adjust your expectations on how much return you expect on investment, and expand your efforts accordingly. As in any engineering project, you have to weigh the benefit of adding new features against the cost of increased complexity.
 
 #### Rule 42 - Don't expect diversity, personalization, or relevance to be as correlated with popularity as you think they are.
@@ -385,6 +384,6 @@ Note that if your system is measuring clicks, time spent, watches, +1s, reshares
 
 <sup>[Google Research Blog - App Discovery With Google Play](https://research.googleblog.com/2016/12/app-discovery-with-google-play-part-2.html?m=1)
 
-#### Rule 43 - Your friends tend to be the same across different products. Your interests tend not to be.
+#### Правило 43 - Ваша аудитория, как правило, одинакова для разных продуктов.
 
-Teams at Google have gotten a lot of traction from taking a model predicting the closeness of a connection in one product, and having it work well on another. Your friends are who they are. On the other hand, I have watched several teams struggle with personalization features across product divides. Yes, it seems like it should work. For now, it doesn’t seem like it does. What has sometimes worked is using raw data from one property to predict behavior on another. Also, keep in mind that even knowing that a user has a history on another property can help. For instance, the presence of user activity on two products may be indicative in and of itself.
+Команды в Google получили много положительной обратной связи от пользователей, когда использовали модель, предсказывающую близость пользователей в одном продукте, в другом продукте и эта модель хорошо работала. Вот так можно искать вашу аудиторию. С другой стороны, я наблюдал, как несколько команд бьются за персонализацию через разделение продуктов. Казалось, что это должно сработать, но на данный момент это не сработало. То, что иногда работало - это использование необработанных данных из одного продукта для прогнозирования поведения в другом. Также, знание того, что пользователь имеет историю по другому продукту, может помочь. Например, активность пользователя в двух продуктах может являться индикатором само по себе.

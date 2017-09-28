@@ -348,39 +348,27 @@
 
 Когда вы достигните плато по показателям, ваша команда начнет смотреть на задачи, выходящие за рамки задач вашей нынешней системы машинного обучения. Как указывалось ранее, если цели продукта не покрываются существующим алгоритмической целью, вам необходимо изменить цель или цели вашего продукта. Например, вы можете оптимизировать клики, лайки или загрузки, но принимать решения о запуске, основанные частично на человеческой оценке.
 
-#### Rule 39 - Launch decisions are a proxy for long-term product goals.
+#### Правило 39 - Решение о запуске является "шлюзом" для долгосрочных целей продукта.
 
-Alice has an idea about reducing the logistic loss of predicting installs. She adds a feature. The
-logistic loss drops. When she does a live experiment, she sees the install rate increase. However, when she goes to a launch review meeting, someone points out that the number of
-daily active users drops by 5%. The team decides not to launch the model. Alice is disappointed, but now realizes that launch decisions depend on multiple criteria, only some of
-which can be directly optimized using ML. The truth is that the real world is not dungeons and dragons: there are no “hit points” identifying the health of your product. The team has to use the statistics it gathers to try to effectively
-predict how good the system will be in the future. They need to care about engagement, 1 day active users (DAU), 30 DAU, revenue, and advertiser’s return on investment. These metrics that are measureable in A/B tests in themselves are only a proxy for more long­term goals: satisfying users, increasing users, satisfying partners, and profit, which even then you could consider proxies for having a useful, high quality product and a thriving company five years from now.
+У Алисы возникла идея, как сократить логистическую функцию потерь для прогноза установок. Она добавляет признак. Значения функции потерь снижаются. Когда она проводит живой эксперимент, она видит увеличение скорости установки. Однако, когда она идет на встречу по запуску продукта, кто-то указывает, что количество ежедневно активных пользователей ежедневно падает на 5%. Команда решает не запускать модель. Алиса разочарована, но теперь понимает, что решение о запуске зависит от множества критериев и только некоторые из них могут быть напрямую оптимизированы с использованием ML. Правда в том, что реальный мир - это не подземелья и драконы: нет «точек попадания», определяющих здоровье вашего продукта. Команда должна использовать статистику, которую она собирает, чтобы попытаться эффективно предсказать, насколько хорошей будет система в будущем. Им необходимо заботиться о обязательствах, ежедневно активных пользователей (DAU), 30 DAU, доходах и рентабельности инвестиций рекламодателей. Эти показатели, которые можно измерить в тестах A/B сами по себе, являются лишь "шлюзом" для более долгосрочных целей: удовлетворения пользователей, увеличения количества пользователей, удовлетворения партнеров и прибыли. И даже достижение этих целей это "шлюз" к полезному, высококачественному продукту и процветающей компании через пять лет.
 
-**The only easy launch decisions are when all metrics get better (or at least do not get worse).** If the team has a choice between a sophisticated machine learning algorithm, and a
-simple heuristic, if the simple heuristic does a better job on all these metrics, it should choose the heuristic. Moreover, there is no explicit ranking of all possible metric values. Specifically, consider the following two scenarios:
+**Единственное простое решение о запуске - когда все показатели становятся лучше (или, по крайней мере, не ухудшаются).** Когда у команды есть выбор между сложным алгоритмом машинного обучения и простой эвристикой, и простая эвристика делает работу над всеми этими метриками лучше, то команда должны выбрать эвристику. Более того, нет явного рейтинга всех возможных значений метрики. В частности, рассмотрим следующие два сценария:
 
-| Experiment | Daily Active Users | Revenue/Day |
+| Эксперимент | Ежедневно активных пользователей(DAU) | Доход в день |
 |------------|--------------------|-------------|
 | A          | 1 million          | $4 million  |
 | B          | 2 million          | $2 million  |
 
-If the current system is A, then the team would be unlikely to switch to B. If the current system is B, then the team would be unlikely to switch to A. This seems in conflict with rational behavior: however, predictions of changing metrics may or may not pan out, and thus there is a large risk involved with either change. Each metric covers some risk with which the team is concerned. Moreover, no metric covers the team’s ultimate concern, “where is my product going to be five
-years from now”?
+Если текущей системой является A, тогда команда вряд ли переключится на B. Если текущая система - B, тогда команда вряд ли переключится на A. Это, похоже, противоречит рациональному поведению: однако прогнозы изменения показателей могут или не могут дать прибыль, и, следовательно, существует большой риск, связанный с любым изменением. Каждая метрика покрывает некоторый риск, с которым связана команда. Более того, ни одна метрика не олтветит на главный вопрос команды: "где мой продукт будет через пять лет"?
 
-**Individuals, on the other hand, tend to favor one objective that they can directly optimize**. Most machine learning tools favor such an environment. An engineer banging out new features
-can get a steady stream of launches in such an environment. There is a type of machine learning, multi­-objective learning, which starts to address this problem. For instance, one can
-formulate a constraint satisfaction problem that has lower bounds on each metric, and optimizes some linear combination of metrics. However, even then, not all metrics are easily framed as machine learning objectives: if a document is clicked on or an app is installed, it is because that the content was shown. But it is far harder to figure out why a user visits your site. How to predict the future success of a site as a whole is [AI­complete](https://en.wikipedia.org/wiki/AI-complete), as hard as computer vision or
-natural language processing.
+**Люди, с другой стороны, склонны к одной цели, которую они могут непосредственно оптимизировать**. Большинство средств машинного обучения благоприятствуют такой среде. Инженер, добавляющий новые признаки, может получить постоянный поток запусков в такой среде. Существует тип машинного обучения, многокритериальное(multi-objective) обучение, которое начинает решать эту проблему. Например, можно сформулировать проблему разрешения ограничений, которая имеет нижние границы на каждой метрике и оптимизирует некоторую линейную комбинацию метрик. Однако даже тогда не все показатели легко оформляются как цели машинного обучения: если был клик по документу или на установлено приложение, это связано с тем, что содержимое было показано. Но гораздо сложнее понять, почему пользователь посещает ваш сайт. Предсказание будущего успех сайта в целом [AI­complete](https://ru.wikipedia.org/wiki/AI-%D0%BF%D0%BE%D0%BB%D0%BD%D0%B0%D1%8F_%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0), так же сложно, как компьютерное зрение или обработка естественного языка.
 
 #### Rule 40 - Keep ensembles simple.
 
-Unified models that take in raw features and directly rank content are the easiest models to debug and understand. However, an ensemble of models (a “model” which combines the scores of other models) can work better. **To keep things simple, each model should either be an ensemble only taking the input of other models, or a base model taking many features,
-but not both.** If you have models on top of other models that are trained separately, then combining them can result in bad behavior.
+Unified models that take in raw features and directly rank content are the easiest models to debug and understand. However, an ensemble of models (a “model” which combines the scores of other models) can work better. **To keep things simple, each model should either be an ensemble only taking the input of other models, or a base model taking many features, but not both.** If you have models on top of other models that are trained separately, then combining them can result in bad behavior.
 
 Use a simple model for ensembling that takes only the output of your “base” models as inputs.
-You also want to enforce properties on these ensemble models. For example, an increase in the score produced by a base model should not decrease the score of the ensemble. Also, it is best
-if the incoming models are semantically interpretable (for example, calibrated) so that changes of the underlying models do not confuse the ensemble model. **Also, enforce that an increase in the predicted probability of an underlying classifier does not decrease the predicted
-probability of the ensemble.**
+You also want to enforce properties on these ensemble models. For example, an increase in the score produced by a base model should not decrease the score of the ensemble. Also, it is best if the incoming models are semantically interpretable (for example, calibrated) so that changes of the underlying models do not confuse the ensemble model. **Also, enforce that an increase in the predicted probability of an underlying classifier does not decrease the predicted probability of the ensemble.**
 
 #### Rule 41 - When performance plateaus, look for qualitatively new sources of information to add rather than refining existing signals.
 
